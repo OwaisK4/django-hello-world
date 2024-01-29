@@ -9,4 +9,4 @@ urlpatterns = [
     # path("cover/", cover, name="cover"),
     path("", cover, name="cover"),
     path("image/<image_id>/", display_image, name="image"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
