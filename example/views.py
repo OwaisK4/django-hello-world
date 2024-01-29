@@ -3,7 +3,8 @@ from datetime import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ImageForm
-from example.static.media.pillow_convert import blur_image
+
+# from example.static.media.pillow_convert import blur_image
 
 
 def index(request):
