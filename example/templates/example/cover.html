@@ -41,7 +41,7 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
+      <h3 class="float-md-start mb-0">Vercel</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="#">Features</a>
@@ -54,14 +54,11 @@
     <h1>Image Processor</h1>
     <p class="lead">Upload your image to sharpen it using cutting-edge AI algorithms.</p>
     <p class="lead">
-      {% comment %} <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a> {% endcomment %}
       <div class="mb-3">
-        {% comment %} <label for="formFile" class="form-label lead">Default file input example</label> {% endcomment %}
-        {% comment %} <input class="form-control" type="file" id="formFile">{% endcomment %}
         <form method = "post" enctype="multipart/form-data">
           {% csrf_token %}
-          {{ form }}
-          {% comment %} <br> {% endcomment %}
+          {{ form.user_image }}
+          <br><br>
           <button class="form-control" type="submit">Upload</button>
       </form>
       </div>
@@ -69,7 +66,7 @@
   </main>
 
   <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    <p>Written by <a href="https://www.facebook.com/profile.php?id=100003346882520" class="text-white">Owais Ali Khan</a>, at <a href="https://github.com/OwaisK4" class="text-white">@owaisk4</a>.</p>
   </footer>
 </div>
 

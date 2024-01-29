@@ -3,8 +3,9 @@ from datetime import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ImageForm
-
-# from example.static.media.pillow_convert import blur_image
+from PIL import Image, ImageFilter
+import base64
+from io import BytesIO
 
 
 def index(request):
@@ -27,9 +28,30 @@ def cover(request):
             data = form.cleaned_data["user_image"]
             print(data)
             print(type(data))
-            handle_uploaded_file(data)
+            original_image = base64.b64encode(data.read())
+            original_image = original_image.decode("utf-8")
+            converted = Image.open(data)
+            converted = converted.filter(ImageFilter.SHARPEN)
+            image_bytes = BytesIO()
+            converted.save(image_bytes, "JPEG")
+            image = base64.b64encode(image_bytes.getvalue())
+            image = image.decode("utf-8")
+            # handle_uploaded_file(data)
             # return HttpResponseRedirect("image", image_id=str(data))
-            return redirect("image", image_id=str(data))
+            # return redirect("image", image_id=str(data))
+            html = f"""
+                    <html>
+                        <body>
+                            <h1>Original image:
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            Sharpened image:
+                            </h1>
+                            <img src="data:image/png;base64,{ original_image }">
+                            <img src="data:image/png;base64,{ image }">
+                        </body>
+                    </html>
+                    """
+            return HttpResponse(html)
         else:
             print("Invalid form")
     else:
