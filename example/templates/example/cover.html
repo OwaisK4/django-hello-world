@@ -14,7 +14,8 @@
 
 
     <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endcomment %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -33,8 +34,7 @@
 
     
     <!-- Custom styles for this template -->
-    {% comment %} <link href="cover.css" rel="stylesheet"> {% endcomment %}
-    <link rel="stylesheet" href="{% static 'example/css/cover.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'example/css/cover.css' %}"> {% endcomment %}
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
     
