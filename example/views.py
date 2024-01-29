@@ -3,6 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ImageForm
+from example.static.media.pillow_convert import blur_image
 
 
 def index(request):
@@ -39,6 +40,7 @@ def handle_uploaded_file(f):
     with open("example/static/media/" + str(f), "wb+") as destination:
         for chunk in f.chunks():
             destination.write(chunk)
+    blur_image("example/static/media/" + str(f))
 
 
 def display_image(request, image_id):
